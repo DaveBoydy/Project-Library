@@ -17,6 +17,8 @@ addEventListener("load", (event) => {
 
   organizeBooks.addEventListener("click", organizeBookShelf);
   peruseBooks.addEventListener("click", queryAvailableBooks);
+  addBookToLibrary();
+  displayLibraryBooks();
 });
 
 /*
@@ -29,8 +31,6 @@ function organizeBookShelf() {
 
 function queryAvailableBooks() {
   computerScreen.classList.toggle("look-at-computer");
-  addBookToLibrary();
-  displayLibraryBooks();
 }
 
 /*
@@ -64,6 +64,7 @@ const lionWitchWardrobe = new LibraryBook(
  * Helper functions perform tasks for controllers.
  */
 function addBookToLibrary() {
+  //TODO add books from the bookshelf form.
   populateStaticBooksList();
 }
 
@@ -75,15 +76,11 @@ function populateStaticBooksList() {
 function displayLibraryBooks() {
   myLibrary.forEach((book) => {
     const tableRecord = document.createElement("tr");
-    createTableCell(tableRecord, book);
+    for (const metaProperty in book) {
+      const tableCell = document.createElement("td");
+      tableCell.textContent = book[metaProperty];
+      tableRecord.appendChild(tableCell);
+    }
+    document.getElementById("table-records").appendChild(tableRecord);
   });
-}
-
-function createTableCell(row, book) {
-  for (const metaProperty in book) {
-    const tableCell = document.createElement("td");
-    tableCell.textContent = book[metaProperty];
-    row.appendChild(tableCell);
-  }
-  document.getElementById("table-records").appendChild(row);
 }
