@@ -3,7 +3,6 @@ const myLibrary = [];
 /*
  * Reference DOM nodes for dynamic updates.
  */
-// const borrowBook = document.querySelector("#borrow-book");
 
 const organizeBooks = document.querySelector("#organize-books");
 const peruseBooks = document.querySelector("#peruse-books");
@@ -30,7 +29,7 @@ function organizeBookShelf() {
 
 function queryAvailableBooks() {
   computerScreen.classList.toggle("look-at-computer");
-  populateStaticBooksList();
+  addBookToLibrary();
   displayLibraryBooks();
 }
 
@@ -64,11 +63,9 @@ const lionWitchWardrobe = new LibraryBook(
 /*
  * Helper functions perform tasks for controllers.
  */
-
-// function addBookToLibrary() {
-//   myLibrary.push(theHobbit);
-//   myLibrary.push(lionWitchWardrobe);
-// }
+function addBookToLibrary() {
+  populateStaticBooksList();
+}
 
 function populateStaticBooksList() {
   myLibrary.push(theHobbit);
@@ -76,9 +73,17 @@ function populateStaticBooksList() {
 }
 
 function displayLibraryBooks() {
-  myLibrary.forEach(displayBook);
+  myLibrary.forEach((book) => {
+    const tableRecord = document.createElement("tr");
+    createTableCell(tableRecord, book);
+  });
 }
 
-function displayBook(book) {
-  console.table(book);
+function createTableCell(row, book) {
+  for (const metaProperty in book) {
+    const tableCell = document.createElement("td");
+    tableCell.textContent = book[metaProperty];
+    row.appendChild(tableCell);
+  }
+  document.getElementById("table-records").appendChild(row);
 }
