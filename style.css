@@ -62,12 +62,12 @@
 }
 
 #bookshelf,
-#computer-screen {
+#catalogue {
   display: none;
 }
 
 #bookshelf.look-at-bookshelf,
-#computer-screen.look-at-computer {
+#catalogue.look-at-computer {
   display: block;
 }
 
@@ -80,10 +80,11 @@
 #bookshelf div {
   width: 265px;
   display: flex;
+  gap: 24px;
   justify-content: space-between;
 }
 
-#computer-screen h2 {
+#catalogue h2 {
   margin-bottom: 24px;
 }
 

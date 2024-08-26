@@ -7,7 +7,8 @@ const myLibrary = [];
 const organizeBooks = document.querySelector("#organize-books");
 const peruseBooks = document.querySelector("#peruse-books");
 const bookShelf = document.querySelector("#bookshelf");
-const computerScreen = document.querySelector("#computer-screen");
+const computerScreen = document.querySelector("#catalogue");
+const form = document.querySelector("form");
 
 /*
  * Listen for UI interaction.
@@ -15,8 +16,9 @@ const computerScreen = document.querySelector("#computer-screen");
 addEventListener("load", (event) => {
   console.log("The page is fully loaded.");
 
-  organizeBooks.addEventListener("click", organizeBookShelf);
-  peruseBooks.addEventListener("click", queryAvailableBooks);
+  organizeBooks.addEventListener("click", lookAtBooks);
+  peruseBooks.addEventListener("click", lookAtComputer);
+  form.addEventListener("submit", organizeBookShelf);
   addBookToLibrary();
   displayLibraryBooks();
 });
@@ -25,12 +27,19 @@ addEventListener("load", (event) => {
  * Controllers respond to UI interaction.
  */
 
-function organizeBookShelf() {
+function lookAtBooks() {
   bookShelf.classList.toggle("look-at-bookshelf");
 }
 
-function queryAvailableBooks() {
+function lookAtComputer() {
   computerScreen.classList.toggle("look-at-computer");
+}
+
+function organizeBookShelf(e) {
+  e.preventDefault();
+  const formData = new FormData(form);
+  const bookObject = Object.fromEntries(formData);
+  console.log(bookObject);
 }
 
 /*

@@ -9,7 +9,7 @@
   </head>
   <body id="page-container">
     <header id="intro">
-      <h1>Welcome to Dave's library</h1>
+      <h1>Welcome to Dave's Library</h1>
     </header>
     <main id="content">
       <section id="librarian">
@@ -22,12 +22,12 @@
 
         <div>
           <button id="peruse-books">here</button>
-          <p>is the computer</p>
+          <p>is the catalogue</p>
         </div>
       </section>
 
-      <section id="computer-screen">
-        <h2>Computer</h2>
+      <section id="catalogue">
+        <h2>Catalogue</h2>
         <table id="book-list">
           <thead>
             <tr>
@@ -43,7 +43,7 @@
     </main>
 
     <aside id="bookshelf">
-      <form action="#">
+      <form>
         <h2>Bookshelf</h2>
         <div>
           <label for="book-title">Title:</label>
@@ -68,14 +68,21 @@
           <select id="book-completion" name="book-completion" required>
             <option value="unread">Not started</option>
             <option value="started">Started reading</option>
+            <option value="engrossed">Getting into it</option>
             <option value="halfway">Halfway through</option>
+            <option value="passed">Past halfway</option>
             <option value="almost">Reaching the end</option>
             <option value="finished">Finished reading</option>
           </select>
         </div>
         <div>
-          <button formaction="#">Add Book</button>
-          <button formaction="#">Remove Book</button>
+          <label for="add-book">Add:</label>
+          <input type="radio" name="organize-shelf" value="add-book" />
+          <label for="remove-book">Remove:</label>
+          <input type="radio" name="organize-shelf" value="remove-book" />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
         </div>
       </form>
     </aside>
