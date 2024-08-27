@@ -19,7 +19,7 @@ addEventListener("load", (event) => {
   organizeBooks.addEventListener("click", lookAtBooks);
   peruseBooks.addEventListener("click", lookAtComputer);
   form.addEventListener("submit", organizeBookShelf);
-  addBookToLibrary();
+  populateStaticBooksList();
   displayLibraryBooks();
 });
 
@@ -39,7 +39,14 @@ function organizeBookShelf(e) {
   e.preventDefault();
   const formData = new FormData(form);
   const bookObject = Object.fromEntries(formData);
-  console.log(bookObject);
+
+  for (entry in bookObject) {
+    if (bookObject[entry] === "add-book") {
+      addBookToLibrary(bookObject);
+    } else if (bookObject[entry] === "remove-book") {
+      removeBookFromLibrary(bookObject);
+    }
+  }
 }
 
 /*
@@ -72,9 +79,29 @@ const lionWitchWardrobe = new LibraryBook(
 /*
  * Helper functions perform tasks for controllers.
  */
-function addBookToLibrary() {
-  //TODO add books from the bookshelf form.
-  populateStaticBooksList();
+function addBookToLibrary(book) {
+  const libraryBook = new LibraryBook(
+    book["book-title"],
+    book["book-author"],
+    book["book-pages"],
+    book["book-completion"]
+  );
+  addBookToShelf(libraryBook);
+}
+
+function addBookToShelf(book) {
+  myLibrary.push(book);
+  const tableRecord = document.createElement("tr");
+  for (const metaProperty in book) {
+    const tableCell = document.createElement("td");
+    tableCell.textContent = book[metaProperty];
+    tableRecord.appendChild(tableCell);
+  }
+  document.getElementById("table-records").appendChild(tableRecord);
+}
+
+function removeBookFromLibrary(book) {
+  console.log("Removing a library book");
 }
 
 function populateStaticBooksList() {
