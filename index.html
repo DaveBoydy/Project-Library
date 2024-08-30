@@ -42,8 +42,10 @@
       </section>
     </main>
 
-    <aside id="bookshelf">
-      <form>
+    <aside id="bookshelf"></aside>
+
+    <template id="bookshelf-add">
+      <form class="book-form">
         <h2>Bookshelf</h2>
         <div>
           <label for="book-title">Title:</label>
@@ -75,16 +77,52 @@
             <option value="finished">Finished reading</option>
           </select>
         </div>
-        <div>
+        <div id="add-or-remove">
           <label for="add-book">Add:</label>
           <input type="radio" name="organize-shelf" value="add-book" checked />
           <label for="remove-book">Remove:</label>
-          <input type="radio" name="organize-shelf" value="remove-book" />
+          <input
+            id="remove-book"
+            type="radio"
+            name="organize-shelf"
+            value="remove-book"
+          />
         </div>
         <div>
           <button type="submit">Submit</button>
         </div>
       </form>
-    </aside>
+    </template>
+
+    <template id="bookshelf-remove">
+      <form class="book-form">
+        <h2>Bookshelf</h2>
+        <div>
+          <label for="book-title">Title:</label>
+          <input id="book-title" type="text" name="book-title" required />
+        </div>
+
+        <div id="add-or-remove">
+          <label for="add-book">Add:</label>
+          <input
+            id="add-book"
+            type="radio"
+            name="organize-shelf"
+            value="add-book"
+          />
+
+          <label for="remove-book">Remove:</label>
+          <input
+            type="radio"
+            name="organize-shelf"
+            value="remove-book"
+            checked
+          />
+        </div>
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </template>
   </body>
 </html>

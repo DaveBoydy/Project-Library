@@ -67,7 +67,7 @@
 }
 
 #bookshelf.look-at-bookshelf,
-#catalogue.look-at-computer {
+#catalogue.look-at-catalogue {
   display: block;
 }
 

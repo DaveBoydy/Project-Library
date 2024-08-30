@@ -7,8 +7,10 @@ const myLibrary = [];
 const organizeBooks = document.querySelector("#organize-books");
 const peruseBooks = document.querySelector("#peruse-books");
 const bookShelf = document.querySelector("#bookshelf");
-const computerScreen = document.querySelector("#catalogue");
-const form = document.querySelector("form");
+const catalogue = document.querySelector("#catalogue");
+const addTemplate = document.querySelector("#bookshelf-add");
+const removeTemplate = document.querySelector("#bookshelf-remove");
+let form = null;
 
 /*
  * Listen for UI interaction.
@@ -16,27 +18,34 @@ const form = document.querySelector("form");
 addEventListener("load", (event) => {
   console.log("The page is fully loaded.");
 
-  organizeBooks.addEventListener("click", lookAtBooks);
-  peruseBooks.addEventListener("click", lookAtComputer);
-  form.addEventListener("submit", organizeBookShelf);
+  initMyLibrary();
+});
+
+/*
+ * Initialize library.
+ */
+function initMyLibrary() {
   populateStaticBooksList();
   displayLibraryBooks();
-});
+  addBookMode();
+  organizeBooks.addEventListener("click", lookAtBooks);
+  peruseBooks.addEventListener("click", lookAtCatalogue);
+}
 
 /*
  * Controllers respond to UI interaction.
  */
-
 function lookAtBooks() {
   bookShelf.classList.toggle("look-at-bookshelf");
 }
 
-function lookAtComputer() {
-  computerScreen.classList.toggle("look-at-computer");
+function lookAtCatalogue() {
+  catalogue.classList.toggle("look-at-catalogue");
 }
 
 function organizeBookShelf(e) {
   e.preventDefault();
+
   const formData = new FormData(form);
   const bookObject = Object.fromEntries(formData);
 
@@ -47,6 +56,34 @@ function organizeBookShelf(e) {
       removeBookFromLibrary(bookObject);
     }
   }
+}
+
+function addBookMode() {
+  if (document.querySelector(".book-form")) {
+    document.querySelector(".book-form").remove();
+  }
+
+  bookShelf.appendChild(addTemplate.content.cloneNode(true));
+
+  form = document.querySelector(".book-form");
+  form.addEventListener("submit", organizeBookShelf);
+
+  const removeBook = document.querySelector("#remove-book");
+  removeBook.addEventListener("click", removeBookMode);
+}
+
+function removeBookMode() {
+  if (document.querySelector(".book-form")) {
+    document.querySelector(".book-form").remove();
+  }
+
+  bookShelf.appendChild(removeTemplate.content.cloneNode(true));
+
+  form = document.querySelector(".book-form");
+  form.addEventListener("submit", organizeBookShelf);
+
+  const addBook = document.querySelector("#add-book");
+  addBook.addEventListener("click", addBookMode);
 }
 
 /*
@@ -77,7 +114,7 @@ const lionWitchWardrobe = new LibraryBook(
 );
 
 /*
- * Helper functions perform tasks for controllers.
+ * Helper functions delegated tasks by controllers.
  */
 function addBookToLibrary(book) {
   const libraryBook = new LibraryBook(
@@ -102,6 +139,20 @@ function addBookToShelf(book) {
 
 function removeBookFromLibrary(book) {
   console.log("Removing a library book");
+
+  myLibrary.map(function (libBook, index) {
+    if (book["book-title"] === libBook["title"]) {
+      console.log(`target acquired at index: ${index}`);
+      myLibrary.splice(index, 1);
+    }
+  });
+
+  const records = document.getElementById("table-records");
+  while (records.firstChild) {
+    records.firstChild.remove();
+  }
+
+  displayLibraryBooks();
 }
 
 function populateStaticBooksList() {
