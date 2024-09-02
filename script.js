@@ -142,7 +142,7 @@ function removeBookFromLibrary(book) {
   console.log("Removing a library book");
 
   myLibrary.map(function (libBook, index) {
-    if (book["book-title"] === libBook["title"]) {
+    if (book["book-title"].toLowerCase() === libBook["title"].toLowerCase()) {
       console.log(`target acquired at index: ${index}`);
       myLibrary.splice(index, 1);
     }
