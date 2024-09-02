@@ -10,6 +10,7 @@ const bookShelf = document.querySelector("#bookshelf");
 const catalogue = document.querySelector("#catalogue");
 const addTemplate = document.querySelector("#bookshelf-add");
 const removeTemplate = document.querySelector("#bookshelf-remove");
+const bookList = document.querySelector("#book-list");
 let form = null;
 
 /*
@@ -147,10 +148,12 @@ function removeBookFromLibrary(book) {
     }
   });
 
-  const records = document.getElementById("table-records");
-  while (records.firstChild) {
-    records.firstChild.remove();
-  }
+  let records = document.getElementById("table-records");
+
+  bookList.removeChild(records);
+  records = document.createElement("tbody");
+  records.setAttribute("id", "table-records");
+  bookList.appendChild(records);
 
   displayLibraryBooks();
 }
