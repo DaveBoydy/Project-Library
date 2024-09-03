@@ -33,9 +33,19 @@
   color: #04aa6d;
 }
 
+#content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 32px;
+}
+
+#catalogue {
+  flex: auto;
+}
+
 #intro,
-#content,
-#bookshelf {
+#content {
   padding: 24px;
 }
 
@@ -46,13 +56,8 @@
   gap: 16px;
 }
 
-#content {
-  position: relative;
-}
-
 #librarian {
   gap: 32px;
-  margin-bottom: 80px;
 }
 
 #librarian div {
@@ -69,12 +74,6 @@
 #bookshelf.look-at-bookshelf,
 #catalogue.look-at-catalogue {
   display: block;
-}
-
-#bookshelf {
-  position: absolute;
-  top: 75px;
-  right: 460px;
 }
 
 #bookshelf div {
