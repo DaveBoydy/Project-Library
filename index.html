@@ -9,39 +9,46 @@
   </head>
   <body id="page-container">
     <header id="intro">
-      <h1>Welcome to Dave's Library</h1>
+      <div class="container">
+        <h1>Library</h1>
+        <div>
+          <!-- <section>
+            <h2>Librarian</h2>
+          </section> -->
+          <button id="organize-books">Organize</button>
+          <button id="peruse-books">Browse</button>
+          <!-- <h2>Librarian</h2>
+          <div>
+            <div class="shelf">
+              <button id="organize-books">Bookshelf</button>
+              <p>is the bookshelf</p>
+            </div>
+            <div class="shelf">
+              <button id="peruse-books">Catalogue</button>
+              <p>is the catalogue</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
     </header>
     <main id="content">
-      <section id="librarian">
-        <h2>Librarian</h2>
-
-        <div>
-          <button id="organize-books">here</button>
-          <p>is the bookshelf</p>
-        </div>
-
-        <div>
-          <button id="peruse-books">here</button>
-          <p>is the catalogue</p>
-        </div>
-      </section>
-
-      <aside id="bookshelf"></aside>
-
-      <section id="catalogue">
-        <h2>Catalogue</h2>
-        <table id="book-list">
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>pages</th>
-              <th>Completion</th>
-            </tr>
-          </thead>
-          <tbody id="table-records"></tbody>
-        </table>
-      </section>
+      <div class="container">
+        <aside id="bookshelf"></aside>
+        <section id="catalogue">
+          <h2>Catalogue</h2>
+          <table id="book-list">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>pages</th>
+                <th>Completion</th>
+              </tr>
+            </thead>
+            <tbody id="table-records"></tbody>
+          </table>
+        </section>
+      </div>
     </main>
 
     <template id="bookshelf-add">

@@ -1,9 +1,19 @@
 :root {
+  --primary: #614e44;
+  --secondary: #40352e;
+  --contrast: #e4dfdc;
+  --accent: #577419;
+
   --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
 
+  --content-width: 1100px;
+
   font-size: 1.125rem;
+  font-family: var(--font-family);
+  color: var(--contrast);
+  background-color: var(--secondary);
 }
 
 *,
@@ -14,18 +24,28 @@
   margin: 0;
 }
 
-#page-container {
-  margin: 0 auto;
+.container {
   max-width: 1100px;
-  font-family: var(--font-family);
+  margin: 0 auto;
 }
 
 #page-container button {
   color: white;
   background-color: #04aa6d;
   border: 1px solid #04aa6d;
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 5px;
   padding: 4px 8px;
+}
+
+#page-container input:focus,
+#page-container select:focus {
+  outline-color: var(--accent);
+}
+
+#page-container input[type="radio"] {
+  accent-color: var(--accent);
 }
 
 #page-container button:active {
@@ -33,11 +53,14 @@
   color: #04aa6d;
 }
 
-#content {
+#intro {
+  background-color: var(--primary);
+  /* color: var(--contrast); */
+}
+
+#intro .container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  row-gap: 32px;
 }
 
 #catalogue {
@@ -49,21 +72,10 @@
   padding: 24px;
 }
 
-#librarian,
 #bookshelf form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-}
-
-#librarian {
-  gap: 32px;
-}
-
-#librarian div {
-  width: 300px;
-  display: flex;
-  column-gap: 8px;
 }
 
 #bookshelf,
@@ -92,9 +104,12 @@
   width: 100%;
 }
 
+#book-list {
+  border: 1px solid var(--contrast);
+}
+
 #book-list td,
 #book-list th {
-  border: 1px solid #ddd;
   padding: 8px;
 }
 
@@ -102,14 +117,14 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #6e260e;
-  color: white;
+  background-color: var(--accent);
 }
 
 #book-list tr:nth-child(even) {
-  background-color: #f2f2f2;
+  background-color: var(--primary);
 }
 
-#book-list tr:hover {
-  background-color: #ddd;
+#table-records tr:hover {
+  background-color: var(--contrast);
+  color: var(--secondary);
 }
