@@ -10,6 +10,9 @@
 
   --content-width: 1100px;
 
+  --card-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.25);
+  --pressed-button-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+
   font-size: 1.125rem;
   font-family: var(--font-family);
   color: var(--contrast);
@@ -24,11 +27,6 @@
   margin: 0;
 }
 
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
 #page-container button {
   color: white;
   background-color: #04aa6d;
@@ -37,6 +35,22 @@
   border: 1px solid var(--accent);
   border-radius: 5px;
   padding: 4px 8px;
+}
+
+#page-container button:hover {
+  background-color: var(--contrast);
+  color: var(--accent);
+}
+
+#page-container button:active {
+  transform: scale(0.98);
+  box-shadow: var(--pressed-button-shadow);
+}
+
+#page-container button,
+#page-container input,
+#page-container select {
+  cursor: pointer;
 }
 
 #page-container input:focus,
@@ -48,14 +62,14 @@
   accent-color: var(--accent);
 }
 
-#page-container button:active {
-  background-color: white;
-  color: #04aa6d;
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 #intro {
   background-color: var(--primary);
-  /* color: var(--contrast); */
+  box-shadow: var(--card-shadow);
 }
 
 #intro .container {
@@ -63,19 +77,24 @@
   justify-content: space-between;
 }
 
-#catalogue {
-  flex: auto;
-}
-
 #intro,
 #content {
   padding: 24px;
+}
+
+#library-ui {
+  display: flex;
+  gap: 24px;
 }
 
 #bookshelf form {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+#catalogue {
+  flex: auto;
 }
 
 #bookshelf,
@@ -102,6 +121,7 @@
 #book-list {
   border-collapse: collapse;
   width: 100%;
+  box-shadow: var(--card-shadow);
 }
 
 #book-list {

@@ -104,14 +104,14 @@ const theHobbit = new LibraryBook(
   "The Hobbit",
   "J.R.R. Tolkien",
   "295 pages",
-  "not started"
+  "Not started"
 );
 
 const lionWitchWardrobe = new LibraryBook(
   "The lion, the Witch and the Wardrobe",
   "C.S. Lewis",
   "208 pages",
-  "halfway through"
+  "Halfway through"
 );
 
 /*
