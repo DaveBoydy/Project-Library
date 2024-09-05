@@ -4,6 +4,7 @@ const myLibrary = [];
  * Reference DOM nodes for dynamic updates.
  */
 
+const pageContainer = document.querySelector("#page-container");
 const organizeBooks = document.querySelector("#organize-books");
 const peruseBooks = document.querySelector("#peruse-books");
 const bookShelf = document.querySelector("#bookshelf");
@@ -38,6 +39,7 @@ function initMyLibrary() {
  */
 function lookAtBooks() {
   bookShelf.classList.toggle("look-at-bookshelf");
+  pageContainer.classList.toggle("backdrop-blur");
 }
 
 function lookAtCatalogue() {
