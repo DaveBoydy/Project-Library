@@ -10,6 +10,7 @@
 
   --content-width: 1100px;
   --head-height: 100px;
+  --foot-height: 50px;
 
   --card-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.15);
   --pressed-button-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
@@ -111,8 +112,7 @@
 
 #page-container,
 #content {
-  min-height: 100vh;
-  min-height: calc(100vh - var(--head-height));
+  min-height: calc(100vh - var(--head-height) - var(--foot-height));
 }
 
 #intro .container {
@@ -209,4 +209,17 @@
 #table-records tr:hover {
   background-color: var(--contrast);
   color: var(--secondary);
+}
+
+#outro > p {
+  text-align: center;
+}
+
+a,
+a:visited {
+  color: var(--contrast);
+}
+
+a:hover {
+  text-decoration: underline dashed;
 }
