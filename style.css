@@ -38,7 +38,8 @@
   padding: 4px 8px;
 }
 
-#page-container button:hover {
+#page-container button:hover,
+#page-container .active-button {
   background-color: var(--contrast);
   color: var(--accent);
 }

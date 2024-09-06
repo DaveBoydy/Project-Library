@@ -40,10 +40,12 @@ function initMyLibrary() {
 function lookAtBooks() {
   bookShelf.classList.toggle("look-at-bookshelf");
   mainContent.classList.toggle("backdrop-blur");
+  organizeBooks.classList.toggle("active-button");
 }
 
 function lookAtCatalogue() {
   catalogue.classList.toggle("look-at-catalogue");
+  peruseBooks.classList.toggle("active-button");
 }
 
 function organizeBookShelf(e) {
