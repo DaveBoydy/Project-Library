@@ -60,7 +60,7 @@
           />
         </div>
         <div>
-          <label for="book-completion">Completion:</label>
+          <label for="book-completion">Status:</label>
           <select id="book-completion" name="book-completion" required>
             <option value="Not started">Not started</option>
             <option value="Started reading">Started reading</option>
@@ -83,7 +83,7 @@
           />
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button class="rounded-button submit-add" type="submit">+</button>
         </div>
       </form>
     </template>
@@ -114,7 +114,9 @@
           />
         </div>
         <div>
-          <button type="submit">Submit</button>
+          <button class="rounded-button submit-subtract" type="submit">
+            -
+          </button>
         </div>
       </form>
     </template>
