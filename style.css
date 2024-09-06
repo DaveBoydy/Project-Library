@@ -62,7 +62,7 @@
   border-radius: 50%;
   font-size: 32px;
   box-shadow: var(--pressed-button-shadow);
-  transition: transform 0.25s, opacity 0.25s;
+  transition: transform 0.25s;
 }
 
 #page-container .rounded-button.submit-subtract {
@@ -142,7 +142,20 @@
 
 #bookshelf,
 #catalogue {
-  display: none;
+  visibility: hidden;
+}
+
+#bookshelf.look-at-bookshelf,
+#catalogue.look-at-catalogue {
+  visibility: visible;
+}
+
+#bookshelf {
+  transition: transform 0.5s;
+}
+
+#bookshelf.look-at-bookshelf {
+  transform: scale(1.1);
 }
 
 #bookshelf {
@@ -153,11 +166,6 @@
   border-radius: 8px;
   background-color: var(--primary);
   box-shadow: var(--card-shadow);
-}
-
-#bookshelf.look-at-bookshelf,
-#catalogue.look-at-catalogue {
-  display: block;
 }
 
 .backdrop-blur {
