@@ -13,10 +13,10 @@ const bookList = document.querySelector("#book-list");
 let form = null;
 
 /*
- * Listen for UI interaction.
+ * Execute logic after the DOM has loaded.
  */
 addEventListener("load", (event) => {
-  console.log("The page is fully loaded.");
+  console.log( "The page is fully loaded and application logic can be safely executed.");
 
   initLibraryCollection();
 });
