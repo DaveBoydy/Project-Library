@@ -1,5 +1,3 @@
-const myLibrary = [];
-
 /*
  * Reference DOM nodes for dynamic updates.
  */
@@ -20,18 +18,41 @@ let form = null;
 addEventListener("load", (event) => {
   console.log("The page is fully loaded.");
 
-  initMyLibrary();
+  initLibraryCollection();
 });
 
 /*
  * Initialize library.
  */
-function initMyLibrary() {
+function initLibraryCollection() {
   populateStaticBooksList();
   displayLibraryBooks();
   addBookMode();
   organizeBooks.addEventListener("click", lookAtBooks);
   peruseBooks.addEventListener("click", lookAtCatalogue);
+}
+
+/*
+ *  Create new book objects.
+ */
+class LibraryBook {
+  static libraryCollection = [];
+  constructor(title, author, pages, completion) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.completion = completion;
+  }
+
+  static addBookToLibrary(book) {
+    const libraryBook = new LibraryBook(
+      book["book-title"],
+      book["book-author"],
+      book["book-pages"],
+      book["book-completion"]
+    );
+    addBookToShelf(libraryBook);
+  }
 }
 
 /*
@@ -56,7 +77,7 @@ function organizeBookShelf(e) {
 
   for (entry in bookObject) {
     if (bookObject[entry] === "add-book") {
-      addBookToLibrary(bookObject);
+      LibraryBook.addBookToLibrary(bookObject);
     } else if (bookObject[entry] === "remove-book") {
       removeBookFromLibrary(bookObject);
     }
@@ -92,16 +113,6 @@ function removeBookMode() {
 }
 
 /*
- *  Create new book objects.
- */
-function LibraryBook(title, author, pages, completion) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.completion = completion;
-}
-
-/*
  * Library book examples.
  */
 const theHobbit = new LibraryBook(
@@ -121,18 +132,9 @@ const lionWitchWardrobe = new LibraryBook(
 /*
  * Helper functions delegated tasks by controllers.
  */
-function addBookToLibrary(book) {
-  const libraryBook = new LibraryBook(
-    book["book-title"],
-    book["book-author"],
-    book["book-pages"],
-    book["book-completion"]
-  );
-  addBookToShelf(libraryBook);
-}
 
 function addBookToShelf(book) {
-  myLibrary.push(book);
+  LibraryBook.libraryCollection.push(book);
   const tableRecord = document.createElement("tr");
   for (const metaProperty in book) {
     const tableCell = document.createElement("td");
@@ -145,10 +147,10 @@ function addBookToShelf(book) {
 function removeBookFromLibrary(book) {
   console.log("Removing a library book");
 
-  myLibrary.map(function (libBook, index) {
+  LibraryBook.libraryCollection.map(function (libBook, index) {
     if (book["book-title"].toLowerCase() === libBook["title"].toLowerCase()) {
       console.log(`target acquired at index: ${index}`);
-      myLibrary.splice(index, 1);
+      LibraryBook.libraryCollection.splice(index, 1);
     }
   });
 
@@ -163,12 +165,12 @@ function removeBookFromLibrary(book) {
 }
 
 function populateStaticBooksList() {
-  myLibrary.push(theHobbit);
-  myLibrary.push(lionWitchWardrobe);
+  LibraryBook.libraryCollection.push(theHobbit);
+  LibraryBook.libraryCollection.push(lionWitchWardrobe);
 }
 
 function displayLibraryBooks() {
-  myLibrary.forEach((book) => {
+  LibraryBook.libraryCollection.forEach((book) => {
     const tableRecord = document.createElement("tr");
     for (const metaProperty in book) {
       const tableCell = document.createElement("td");
