@@ -78,8 +78,10 @@ function organizeBookShelf(e) {
   for (entry in bookObject) {
     if (bookObject[entry] === "add-book") {
       LibraryBook.addBookToLibrary(bookObject);
+      alert("Added book to the library");
     } else if (bookObject[entry] === "remove-book") {
       removeBookFromLibrary(bookObject);
+      alert("Removed book from the library");
     }
   }
 }
@@ -112,22 +114,6 @@ function removeBookMode() {
   addBook.addEventListener("click", addBookMode);
 }
 
-/*
- * Library book examples.
- */
-const theHobbit = new LibraryBook(
-  "The Hobbit",
-  "J.R.R. Tolkien",
-  "295 pages",
-  "Not started"
-);
-
-const lionWitchWardrobe = new LibraryBook(
-  "The lion, the Witch and the Wardrobe",
-  "C.S. Lewis",
-  "208 pages",
-  "Halfway through"
-);
 
 /*
  * Helper functions delegated tasks by controllers.
@@ -180,3 +166,20 @@ function displayLibraryBooks() {
     document.getElementById("table-records").appendChild(tableRecord);
   });
 }
+
+/*
+ * Library book examples.
+ */
+const theHobbit = new LibraryBook(
+  "The Hobbit",
+  "J.R.R. Tolkien",
+  "295 pages",
+  "Not started"
+);
+
+const lionWitchWardrobe = new LibraryBook(
+  "The lion, the Witch and the Wardrobe",
+  "C.S. Lewis",
+  "208 pages",
+  "Halfway through"
+);
