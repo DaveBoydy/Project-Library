@@ -1,21 +1,28 @@
 {
-  "name": "project-library",
-  "version": "1.0.0",
-  "description": "## [Live Demo](https://daveboydy.github.io/Project-Library/)",
-  "main": "script.js",
-  "scripts": {
-    "build": "webpack --config webpack.prod.js",
-    "dev": "webpack serve --config webpack.dev.js"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "css-loader": "^7.1.2",
-    "html-webpack-plugin": "^5.6.3",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0"
-  }
+    "name": "project-library",
+    "version": "1.0.0",
+    "description": "## [Live Demo](https://daveboydy.github.io/Project-Library/)",
+    "main": "script.js",
+    "scripts": {
+        "build": "webpack --config webpack.prod.js",
+        "dev": "webpack serve --config webpack.dev.js",
+        "pretty": "prettier . --write",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@eslint/js": "^9.18.0",
+        "css-loader": "^7.1.2",
+        "eslint": "^9.18.0",
+        "globals": "^15.14.0",
+        "html-webpack-plugin": "^5.6.3",
+        "prettier": "^3.4.2",
+        "style-loader": "^4.0.0",
+        "webpack": "^5.97.1",
+        "webpack-cli": "^6.0.1",
+        "webpack-dev-server": "^5.2.0"
+    }
 }

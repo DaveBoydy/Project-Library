@@ -1,264 +1,264 @@
 :root {
-  --primary: #842d23;
-  --secondary: #312517;
-  --contrast: #ccbcad;
-  --accent: #345654;
+    --primary: #842d23;
+    --secondary: #312517;
+    --contrast: #ccbcad;
+    --accent: #345654;
 
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
 
-  --content-width: 1100px;
-  --head-height: 100px;
-  --foot-height: 50px;
+    --content-width: 1100px;
+    --head-height: 100px;
+    --foot-height: 50px;
 
-  --card-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.15);
-  --pressed-button-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    --card-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.15);
+    --pressed-button-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
 
-  font-size: 1.125rem;
-  font-family: var(--font-family);
-  color: var(--contrast);
-  background-color: var(--secondary);
+    font-size: 1.125rem;
+    font-family: var(--font-family);
+    color: var(--contrast);
+    background-color: var(--secondary);
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 #page-container button {
-  font-size: 1rem;
-  color: var(--contrast);
-  background-color: #04aa6d;
-  border: 1px solid #04aa6d;
-  background-color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 5px;
-  padding: 0.5em 0.5em;
+    font-size: 1rem;
+    color: var(--contrast);
+    background-color: #04aa6d;
+    border: 1px solid #04aa6d;
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    padding: 0.5em 0.5em;
 }
 
 #page-container button:hover,
 #page-container .active-button {
-  background-color: var(--contrast);
-  color: var(--accent);
+    background-color: var(--contrast);
+    color: var(--accent);
 }
 
 #page-container button:active {
-  transform: scale(0.98);
-  box-shadow: var(--pressed-button-shadow);
+    transform: scale(0.98);
+    box-shadow: var(--pressed-button-shadow);
 }
 
 #page-container button,
 #page-container input,
 #page-container select {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 #page-container .rounded-button {
-  padding: 0px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  font-size: 32px;
-  box-shadow: var(--pressed-button-shadow);
-  transition: transform 0.25s;
+    padding: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 32px;
+    box-shadow: var(--pressed-button-shadow);
+    transition: transform 0.25s;
 }
 
 #page-container .rounded-button:active {
-  width: 49.5px;
-  height: 49.5px;
+    width: 49.5px;
+    height: 49.5px;
 }
 
 #page-container .rounded-button.submit-subtract {
-  font-size: 48px;
-  display: flex;
-  justify-content: center;
-  line-height: 40px;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    line-height: 40px;
 }
 
 #page-container .rounded-button:hover.submit-add {
-  transform: rotate(90deg) scale(1.075);
+    transform: rotate(90deg) scale(1.075);
 }
 
 #page-container .rounded-button:hover.submit-subtract {
-  transform: rotate(180deg) scale(1.075);
+    transform: rotate(180deg) scale(1.075);
 }
 
 #page-container input:focus,
 #page-container select:focus {
-  outline-color: var(--accent);
+    outline-color: var(--accent);
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px var(--contrast) inset;
-  -webkit-text-fill-color: var(--accent);
+    -webkit-box-shadow: 0 0 0px 1000px var(--contrast) inset;
+    -webkit-text-fill-color: var(--accent);
 }
 
-#page-container input[type="radio"] {
-  accent-color: var(--accent);
+#page-container input[type='radio'] {
+    accent-color: var(--accent);
 }
 
 #page-container select,
 #page-container input {
-  color: var(--accent);
-  background-color: var(--contrast);
-  border: var(--secondary);
-  border-radius: 5px;
-  width: 180px;
+    color: var(--accent);
+    background-color: var(--contrast);
+    border: var(--secondary);
+    border-radius: 5px;
+    width: 180px;
 }
 
 #page-container input,
 #page-container select {
-  padding: 4px;
+    padding: 4px;
 }
 
 #page-container,
 #content {
-  min-height: calc(100vh - var(--head-height) - var(--foot-height));
+    min-height: calc(100vh - var(--head-height) - var(--foot-height));
 }
 
 /* Chrome, Safari, Edge, Opera */
 #page-container input::-webkit-outer-spin-button,
 #page-container input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
-#page-container input[type="number"] {
-  -moz-appearance: textfield;
+#page-container input[type='number'] {
+    -moz-appearance: textfield;
 }
 
 #intro {
-  background-color: var(--primary);
-  box-shadow: var(--card-shadow);
-  height: var(--head-height);
+    background-color: var(--primary);
+    box-shadow: var(--card-shadow);
+    height: var(--head-height);
 }
 
 #intro .container {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 #intro h1 {
-  font-size: 2.25rem;
+    font-size: 2.25rem;
 }
 
 #intro,
 #content {
-  padding: 24px;
+    padding: 24px;
 }
 
 #library-ui {
-  display: flex;
-  gap: 24px;
+    display: flex;
+    gap: 24px;
 }
 
 #catalogue {
-  flex: auto;
+    flex: auto;
 }
 
 #bookshelf,
 #catalogue {
-  visibility: hidden;
+    visibility: hidden;
 }
 
 #bookshelf form {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
 
 #bookshelf.look-at-bookshelf,
 #catalogue.look-at-catalogue {
-  visibility: visible;
+    visibility: visible;
 }
 
 #bookshelf.look-at-bookshelf {
-  transform: scale(1.1);
+    transform: scale(1.1);
 }
 
 #bookshelf {
-  position: absolute;
-  top: 20%;
-  right: 45%;
-  padding: 24px;
-  border-radius: 8px;
-  background-color: var(--primary);
-  box-shadow: var(--card-shadow);
-  transition: transform 0.5s;
+    position: absolute;
+    top: 20%;
+    right: 45%;
+    padding: 24px;
+    border-radius: 8px;
+    background-color: var(--primary);
+    box-shadow: var(--card-shadow);
+    transition: transform 0.5s;
 }
 
 #bookshelf div {
-  width: 265px;
-  display: flex;
-  gap: 24px;
-  justify-content: space-between;
+    width: 265px;
+    display: flex;
+    gap: 24px;
+    justify-content: space-between;
 }
 
 #catalogue h2 {
-  margin-bottom: 24px;
+    margin-bottom: 24px;
 }
 
 #book-list {
-  border-collapse: collapse;
-  width: 100%;
-  box-shadow: var(--card-shadow);
-  border: 1px solid var(--contrast);
+    border-collapse: collapse;
+    width: 100%;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--contrast);
 }
 
 #book-list td,
 #book-list th {
-  padding: 8px;
+    padding: 8px;
 }
 
 #book-list th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: var(--accent);
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: var(--accent);
 }
 
 #book-list tr:nth-child(even) {
-  background-color: var(--primary);
+    background-color: var(--primary);
 }
 
 #table-records tr:hover {
-  background-color: var(--contrast);
-  color: var(--secondary);
+    background-color: var(--contrast);
+    color: var(--secondary);
 }
 
 #outro > p {
-  text-align: center;
+    text-align: center;
 }
 
 .container {
-  max-width: 1100px;
-  margin: 0 auto;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .backdrop-blur {
-  filter: blur(8px);
+    filter: blur(8px);
 }
 
 .book-form {
-  min-height: 305px;
+    min-height: 305px;
 }
 
 a,
 a:visited {
-  color: var(--contrast);
+    color: var(--contrast);
 }
 
 a:hover {
-  text-decoration: underline dashed;
+    text-decoration: underline dashed;
 }
 
 @media (max-width: 600px) {
-  #bookshelf {
-    right: 20%;
-  }
+    #bookshelf {
+        right: 20%;
+    }
 }

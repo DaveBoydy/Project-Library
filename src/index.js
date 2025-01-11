@@ -1,2 +1,2 @@
-import "./style.css";
-import "./view/view";
+import './style.css';
+import './view/view';
