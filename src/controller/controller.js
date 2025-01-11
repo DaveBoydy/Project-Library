@@ -1,3 +1,5 @@
+import LibraryBook from "../model/model";
+
 /*
  * Reference DOM nodes for dynamic updates.
  */
@@ -13,69 +15,26 @@ const bookList = document.querySelector("#book-list");
 let form = null;
 
 /*
- * Execute logic after the DOM has loaded.
- */
-addEventListener("load", (event) => {
-  console.log( "The page is fully loaded and application logic can be safely executed.");
-
-  initLibraryCollection();
-});
-
-/*
- * Initialize library.
- */
-function initLibraryCollection() {
-  populateStaticBooksList();
-  displayLibraryBooks();
-  addBookMode();
-  organizeBooks.addEventListener("click", lookAtBooks);
-  peruseBooks.addEventListener("click", lookAtCatalogue);
-}
-
-/*
- *  Create new book objects.
- */
-class LibraryBook {
-  static libraryCollection = [];
-  constructor(title, author, pages, completion) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.completion = completion;
-  }
-
-  static addBookToLibrary(book) {
-    const libraryBook = new LibraryBook(
-      book["book-title"],
-      book["book-author"],
-      book["book-pages"],
-      book["book-completion"]
-    );
-    addBookToShelf(libraryBook);
-  }
-}
-
-/*
  * Controllers respond to UI interaction.
  */
-function lookAtBooks() {
+export function lookAtBooks() {
   bookShelf.classList.toggle("look-at-bookshelf");
   mainContent.classList.toggle("backdrop-blur");
   organizeBooks.classList.toggle("active-button");
 }
 
-function lookAtCatalogue() {
+export function lookAtCatalogue() {
   catalogue.classList.toggle("look-at-catalogue");
   peruseBooks.classList.toggle("active-button");
 }
 
-function organizeBookShelf(e) {
+export function organizeBookShelf(e) {
   e.preventDefault();
 
   const formData = new FormData(form);
   const bookObject = Object.fromEntries(formData);
 
-  for (entry in bookObject) {
+  for (let entry in bookObject) {
     if (bookObject[entry] === "add-book") {
       LibraryBook.addBookToLibrary(bookObject);
       alert("Added book to the library");
@@ -86,7 +45,7 @@ function organizeBookShelf(e) {
   }
 }
 
-function addBookMode() {
+export function addBookMode() {
   if (document.querySelector(".book-form")) {
     document.querySelector(".book-form").remove();
   }
@@ -100,7 +59,7 @@ function addBookMode() {
   removeBook.addEventListener("click", removeBookMode);
 }
 
-function removeBookMode() {
+export function removeBookMode() {
   if (document.querySelector(".book-form")) {
     document.querySelector(".book-form").remove();
   }
@@ -114,12 +73,11 @@ function removeBookMode() {
   addBook.addEventListener("click", addBookMode);
 }
 
-
 /*
  * Helper functions delegated tasks by controllers.
  */
 
-function addBookToShelf(book) {
+export function addBookToShelf(book) {
   LibraryBook.libraryCollection.push(book);
   const tableRecord = document.createElement("tr");
   for (const metaProperty in book) {
@@ -130,7 +88,7 @@ function addBookToShelf(book) {
   document.getElementById("table-records").appendChild(tableRecord);
 }
 
-function removeBookFromLibrary(book) {
+export function removeBookFromLibrary(book) {
   console.log("Removing a library book");
 
   LibraryBook.libraryCollection.map(function (libBook, index) {
@@ -150,12 +108,12 @@ function removeBookFromLibrary(book) {
   displayLibraryBooks();
 }
 
-function populateStaticBooksList() {
+export function populateStaticBooksList() {
   LibraryBook.libraryCollection.push(theHobbit);
   LibraryBook.libraryCollection.push(lionWitchWardrobe);
 }
 
-function displayLibraryBooks() {
+export function displayLibraryBooks() {
   LibraryBook.libraryCollection.forEach((book) => {
     const tableRecord = document.createElement("tr");
     for (const metaProperty in book) {
